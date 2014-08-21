@@ -175,6 +175,7 @@ phonegap: {
 	}
 	...
 }
+```
 
 ### Add Android version code
 ```
