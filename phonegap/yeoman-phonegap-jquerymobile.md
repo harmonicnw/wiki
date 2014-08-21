@@ -90,9 +90,8 @@ keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg R
 
 ## Update package.json
 
-Edit name
-
-Update grunt-phonegap to latest version
+0. Edit name
+0. Update grunt-phonegap to latest version
 ```
 "grunt-phonegap": "~0.15.2"
 ```
@@ -191,6 +190,7 @@ phonegap: {
 ```
 
 ### Add releases
+0. Update Gruntfile
 ```
 phonegap: {
 	...
@@ -206,7 +206,7 @@ phonegap: {
 	...
 }
 ```
-Update package version in _package.json_
+0. Update package version in _package.json_
 
 Add Android release task
 ```
@@ -218,34 +218,30 @@ grunt.registerTask('platform-build', [
 
 ## Build for Testing in Testflight and Google Play (Alpha/Beta)
 
-Update version in _package.json_
-Increment phonegap:versionCode in _Gruntfile.js_
-
-Build
+0. Update version in _package.json_
+0. Increment phonegap:versionCode in _Gruntfile.js_
+0. Build
 ```
 grunt platform-build
 ```
 
 ### iOS
 
-Copy icons and splash screens
-* /app/res/icon/ios/[icons] -> /platforms/phonegap/ios/[projectName]/Classes/Resources/icons/
-* /app/res/screen/ios/[splash] -> /platforms/phonegap/ios/[projectName]/Classes/Resources/splash/
-
-Render app
-* open project in Xcode (/phonegap/platforms/ios/IdiEta.xcodeproj)
-* test build
-* create archive (Product > Archive, Distribute..., Save for Enterprise, select profile, save to disk)
-
-Upload .IPA to Testflight and notify Testflight users
+0. Copy icons and splash screens
+  * /app/res/icon/ios/[icons] -> /platforms/phonegap/ios/[projectName]/Classes/Resources/icons/
+  * /app/res/screen/ios/[splash] -> /platforms/phonegap/ios/[projectName]/Classes/Resources/splash/
+0. Render app
+  * open project in Xcode (/phonegap/platforms/ios/IdiEta.xcodeproj)
+  * test build
+  * create archive (Product > Archive, Distribute..., Save for Enterprise, select profile, save to disk)
+0. Upload .IPA to Testflight and notify Testflight users
  
 ### Android
 
-Ensure icon and splash images copied over
-* /app/res/icon/android/[drawable*]/icon.png -> /platforms/phonegap/android/res/[drawable*]/icon.png
-* /app/res/screen/android/[drawable*]/screen.png -> /platforms/phonegap/android/[drawable*]/screen.png
-
-Upload .APK to Google Play
+0. Ensure icon and splash images copied over
+  * /app/res/icon/android/[drawable*]/icon.png -> /platforms/phonegap/android/res/[drawable*]/icon.png
+  * /app/res/screen/android/[drawable*]/screen.png -> /platforms/phonegap/android/[drawable*]/screen.png
+0. Upload .APK to Google Play
 
 
 ## Misc Info
@@ -255,13 +251,12 @@ Consider using PhoneGap developer app (http://app.phonegap.com)
 
 ## Deprecated Android release instructions
 
-Add path to Keystore for Ant build in /platforms/android/ant.properties
+0. Add path to Keystore for Ant build in /platforms/android/ant.properties
 ```
 key.store=~/Library/Developer/AppName.keystore
 key.alias=AppName   
 ```
-
-Copy icons and splash screens
+0. Copy icons and splash screens
 * /app/res/icon/android/[drawable*]/[icons] -> /platforms/phonegap/android/res/[drawable*]/[icons]
 * /app/res/screen/android/[drawable*]/[splash] -> /platforms/phonegap/android/[drawable*]/[splash]
  
