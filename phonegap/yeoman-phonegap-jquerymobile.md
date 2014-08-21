@@ -191,38 +191,38 @@ phonegap: {
 
 ### Add releases
 0. Update Gruntfile
-    ```
-    phonegap: {
-    	...
-		config: {
-			...
-				releases: 'releases',
-				releaseName: function(){
-					var pkg = grunt.file.readJSON('package.json');
-					return(pkg.name + '-' + pkg.version);
-				},		
-			...
-		},
-    ...
-    }
-    ```
+```
+phonegap: {
+	...
+	config: {
+		...
+		releases: 'releases',
+		releaseName: function(){
+			var pkg = grunt.file.readJSON('package.json');
+			return(pkg.name + '-' + pkg.version);
+		},		
+		...
+	},
+	...
+}
+```
 0. Update package version in _package.json_
 0. Add Android release task
-  ```
-  grunt.registerTask('platform-build', [
+```
+grunt.registerTask('platform-build', [
 	...
 	'phonegap:release:android'
-  ]);
-  ```
+]);
+```
 
 ## Build for Testing in Testflight and Google Play (Alpha/Beta)
 
 0. Update version in _package.json_
 0. Increment phonegap:versionCode in _Gruntfile.js_
 0. Build
-  ```
-  grunt platform-build
-  ```
+```
+grunt platform-build
+```
 
 ### iOS
 
@@ -251,15 +251,15 @@ Consider using PhoneGap developer app (http://app.phonegap.com)
 ## Deprecated Android release instructions
 
 0. Add path to Keystore for Ant build in /platforms/android/ant.properties
-  ```
-  key.store=~/Library/Developer/AppName.keystore
-  key.alias=AppName   
-  ```
+```
+key.store=~/Library/Developer/AppName.keystore
+key.alias=AppName   
+```
 0. Copy icons and splash screens
   * /app/res/icon/android/[drawable*]/[icons] -> /platforms/phonegap/android/res/[drawable*]/[icons]
   * /app/res/screen/android/[drawable*]/[splash] -> /platforms/phonegap/android/[drawable*]/[splash]
 0. Run Ant release (puts file in bin/AppName-release.apk)
-  ```
-  cd platforms/android
-  ant release
-  ```
+```
+cd platforms/android
+ant release
+```
