@@ -191,21 +191,21 @@ phonegap: {
 
 ### Add releases
 0. Update Gruntfile
-```
-phonegap: {
-...
-config: {
-	...
-		releases: 'releases',
-		releaseName: function(){
-			var pkg = grunt.file.readJSON('package.json');
-			return(pkg.name + '-' + pkg.version);
-		},		
-	...
-}
-...
-}
-```
+    ```
+    phonegap: {
+    	...
+		config: {
+			...
+				releases: 'releases',
+				releaseName: function(){
+					var pkg = grunt.file.readJSON('package.json');
+					return(pkg.name + '-' + pkg.version);
+				},		
+			...
+		},
+    ...
+    }
+    ```
 0. Update package version in _package.json_
 0. Add Android release task
   ```
