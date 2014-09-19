@@ -3,7 +3,7 @@
 * Copy _edge_includes/edge.x.x.x.min.js_ to the js folder
 * Copy _edge_includes/jquery.x.x.x.min.js_ to the js folder (unless site already has a suitable version of jquery)
 * Move _[project_name]_edgePreload.js_ to js folder
-* Update reference to _[project_name]_edgePreload.js_ in <HEAD> of HTML
+* Update reference to _[project_name]_edgePreload.js_ in \<HEAD\> of HTML
 * Edit _[project_name]_edgePreload.js_
   * if jquery is already present on site:
     * comment out htFallbacks for jquery
