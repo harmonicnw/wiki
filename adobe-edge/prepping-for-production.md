@@ -18,18 +18,20 @@
       ```var im='images/'```
 
 ## For testing the package locally...
-...don't forget to include the jquery file in the HTML if you have stripped it out of the Edge code.
+Don't forget to include the jquery file in the HTML if you have stripped it out of the Edge code.
 
 ```<script src="../../edge_includes/jquery-2.0.3.min.js"></script>```
 
 
 ## For integration in WordPress...
-...links to javascript and images should look something like:
+Links to javascript and images should look something like:
 
-```/wp-content/themes/fortgeorge/edge/[your-project-name]/js/[project_name]_edge.js```
+```
+/wp-content/themes/fortgeorge/edge/[your-project-name]/js/[project_name]_edge.js
+```
 
 
-Tips for using multiple animations in a single page
+## Tips for using multiple animations in a single page
 
 References:
 * http://blogs.adobe.com/edge/2012/05/15/bootstrapping-edge-compositions/
@@ -38,14 +40,14 @@ References:
 Rename Stage Ids from Stage to Stage1, Stage2, ...
 
 This function will allow access individual compositions:
-```
+```javascript
 AdobeEdge.bootstrapCallback(function (compId) {
 	AdobeEdge.getComposition(compId).getStage().play();
 });
 ```
 
 This function binds a function to an event
-```
+```javascript
 AdobeEdge.Symbol.bindTimelineAction( compId, "stage", "Default Timeline", "complete", function(sym, e) {
 	AdobeEdge.getComposition(compId).getStage().play();
 }
