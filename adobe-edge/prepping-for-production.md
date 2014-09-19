@@ -20,8 +20,9 @@
 ## For testing the package locally...
 Don't forget to include the jquery file in the HTML if you have stripped it out of the Edge code.
 
-```<script src="../../edge_includes/jquery-2.0.3.min.js"></script>```
-
+```
+<script src="../../edge_includes/jquery-2.0.3.min.js"></script>
+```
 
 ## For integration in WordPress...
 Links to javascript and images should look something like:
