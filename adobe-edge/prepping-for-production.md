@@ -28,7 +28,7 @@ Don't forget to include the jquery file in the HTML if you have stripped it out 
 Links to javascript and images should look something like:
 
 ```
-/wp-content/themes/fortgeorge/edge/[your-project-name]/js/[project_name]_edge.js
+/wp-content/themes/[your-theme-name]/edge/[your-project-name]/js/[project_name]_edge.js
 ```
 
 
