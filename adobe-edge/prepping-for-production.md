@@ -1,24 +1,21 @@
 # Prepping Adobe Edge animation files for production
 
-Copy _edge_includes/edge.x.x.x.min.js_ to the js folder
-Copy _edge_includes/jquery.x.x.x.min.js_ to the js folder (unless site already has a suitable version of jquery)
-
-Move _[project_name]_edgePreload.js_ to js folder
-Update reference to _[project_name]_edgePreload.js_ in <HEAD> of HTML
-
-Edit _[project_name]_edgePreload.js_
-if jquery is already present on site:
-comment out htFallbacks for jquery
-comment out aLoader for jquery
-in htFallbacks, add js folder to local path  for _edge.x.x.x.min.js_
-in aLoader, swap paths for local and online reference to _edge.x.x.x.min.js_ (remote reference should be in yepnope block for fallback, local should come first)
-in aLoader, add js folder to local path for _edge.x.x.x.min.js_
-add js folder to local path for _[project_name]_edge.js_ in load
-add js folder to local path for _[project_name]_edgeActions.js_ in load
-
-Edit [project_name]_edge.js
-If images folder is not at /images, replace the images directory here
-```var im='images/'```
+* Copy _edge_includes/edge.x.x.x.min.js_ to the js folder
+* Copy _edge_includes/jquery.x.x.x.min.js_ to the js folder (unless site already has a suitable version of jquery)
+* Move _[project_name]_edgePreload.js_ to js folder
+* Update reference to _[project_name]_edgePreload.js_ in <HEAD> of HTML
+* Edit _[project_name]_edgePreload.js_
+  * if jquery is already present on site:
+    * comment out htFallbacks for jquery
+    * comment out aLoader for jquery
+  * in htFallbacks, add js folder to local path  for _edge.x.x.x.min.js_
+  * in aLoader, swap paths for local and online reference to _edge.x.x.x.min.js_ (remote reference should be in yepnope block for fallback, local should come first)
+  * in aLoader, add js folder to local path for _edge.x.x.x.min.js_
+  * add js folder to local path for _[project_name]_edge.js_ in load
+  * add js folder to local path for _[project_name]_edgeActions.js_ in load
+* Edit [project_name]_edge.js
+  * If images folder is not at /images, replace the images directory here
+      ```var im='images/'```
 
 ## For testing the package locally...
 ...don't forget to include the jquery file in the HTML if you have stripped it out of the Edge code.
