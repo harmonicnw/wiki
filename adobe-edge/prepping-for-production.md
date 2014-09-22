@@ -16,6 +16,10 @@
 * Edit [project_name]_edge.js
   * If images folder is not at /images, replace the images directory here
       ```var im='images/'```
+* Add the following CSS to the animation container, either inline or as part of an external file:
+   ```
+   line-height: normal
+   ```
 
 ## For testing the package locally...
 Don't forget to include the jquery file in the HTML if you have stripped it out of the Edge code.
