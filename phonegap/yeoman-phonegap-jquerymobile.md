@@ -117,14 +117,14 @@ phonegap: {
 ```
 screens: {
 	android: {
-		ldpi: '<%= yeoman.dist %>/res/screen/android/drawable-port-ldpi/screen.png',
-		ldpiLand: '<%= yeoman.dist %>/res/screen/android/drawable-land-ldpi/screen.png',
-		mdpi: '<%= yeoman.dist %>/res/screen/android/drawable-port-mdpi/screen.png',
-		mdpiLand: '<%= yeoman.dist %>/res/screen/android/drawable-land-mdpi/screen.png',
-		hdpi: '<%= yeoman.dist %>/res/screen/android/drawable-port-hdpi/screen.png',
-		hdpiLand: '<%= yeoman.dist %>/res/screen/android/drawable-land-hdpi/screen.png',
-		xhdpi: '<%= yeoman.dist %>/res/screen/android/drawable-port-xhdpi/screen.png',
-		xhdpiLand: '<%= yeoman.dist %>/res/screen/android/drawable-land-xhdpi/screen.png'
+		ldpi: '<%= yeoman.dist %>/res/screen/android/drawable-port-ldpi/splash.png',
+		ldpiLand: '<%= yeoman.dist %>/res/screen/android/drawable-land-ldpi/splash.png',
+		mdpi: '<%= yeoman.dist %>/res/screen/android/drawable-port-mdpi/splash.png',
+		mdpiLand: '<%= yeoman.dist %>/res/screen/android/drawable-land-mdpi/splash.png',
+		hdpi: '<%= yeoman.dist %>/res/screen/android/drawable-port-hdpi/splash.png',
+		hdpiLand: '<%= yeoman.dist %>/res/screen/android/drawable-land-hdpi/splash.png',
+		xhdpi: '<%= yeoman.dist %>/res/screen/android/drawable-port-xhdpi/splash.png',
+		xhdpiLand: '<%= yeoman.dist %>/res/screen/android/drawable-land-xhdpi/splash.png'
 	},
 	ios: {
 		ipadLand: '<%= yeoman.dist %>/res/screen/ios/Default-Landscape~ipad.png',
@@ -182,7 +182,15 @@ phonegap: {
 	...
 	config: {
 		...
-		versionCode: 1,		
+		versionCode: function() {
+			var pkg = grunt.file.readJSON('package.json');
+			var vArr = pkg.version.split('.');
+			var vc = vArr[0];
+			for (var i = 1; i < vArr.length; i++) {
+				vc += ("00" + vArr[i]).slice(-3);
+			}
+			return vc;
+		},		
 		...
 	}
 	...
@@ -218,7 +226,6 @@ grunt.registerTask('platform-build', [
 ## Build for Testing in Testflight and Google Play (Alpha/Beta)
 
 0. Update version in _package.json_
-0. Increment phonegap:versionCode in _Gruntfile.js_
 0. Build
 ```
 grunt platform-build
@@ -233,13 +240,20 @@ grunt platform-build
   * open project in Xcode (/phonegap/platforms/ios/IdiEta.xcodeproj)
   * test build
   * create archive (Product > Archive, Distribute..., Save for Enterprise, select profile, save to disk)
+0. Test on device or emulator 
 0. Upload .IPA to Testflight and notify Testflight users
  
 ### Android
 
 0. Ensure icon and splash images copied over
   * /app/res/icon/android/[drawable*]/icon.png -> /platforms/phonegap/android/res/[drawable*]/icon.png
-  * /app/res/screen/android/[drawable*]/screen.png -> /platforms/phonegap/android/[drawable*]/screen.png
+  * /app/res/screen/android/[drawable*]/screen.png -> /platforms/phonegap/android/[drawable*]/splash.png
+     * *Note:* make sure that the desired custom splash.png image is in each folder rather than screen.png image with the default phonegap splash image
+0. After copying over icon and splash images, recompile release
+   ```
+   grunt phonegap:release:android
+   ```
+0. Test on device or emulator
 0. Upload .APK to Google Play
 
 
